@@ -17,3 +17,7 @@
 -- | Entire villa                        | 75       | 2021-10-12                 |
 
 
+select property_type, count(reviews.id), max(reviews.date_reviewed)
+from listings
+inner join reviews on listings.id = reviews.listing_id
+group by property_type
